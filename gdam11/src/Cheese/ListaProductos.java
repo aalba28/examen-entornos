@@ -41,6 +41,7 @@ public class ListaProductos {
     private boolean check_null(String campo){
     
         if (campo.replace(" ","") == "")  return true; else return false;
+    
     }
 
     public Producto addProducto(Producto prod) {
