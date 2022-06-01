@@ -51,6 +51,7 @@ public class ListaProductos {
     */
     public Producto addProducto(Producto prod) {
         
+         if (prod.replace(" ","") == ""){
         if (listaP.containsKey(prod.getcode())) {
             // System.out.println("Producto con código duplicado");
             return null;
@@ -60,13 +61,18 @@ public class ListaProductos {
         listaP.put(prod.getcode(), prod);
         return prod;
     }
+      return null;
+ }        
 /**
  * Borra productos del codigo
  * @param codigo del producto a eliminar
  * @return devuelve null si esta repetido y devuelve lo que queramos eliminar si no esta repetido
  */
+    
+    
     public Producto eliminarProducto(String codigo) { 
         
+        if (codigo.replace(" ","") == ""){
         Producto prod = buscarProducto(codigo);
         if (prod != null) {
         listaP.remove(codigo);
@@ -75,6 +81,8 @@ public class ListaProductos {
         }
         return prod;
     }
+       return null;
+  }
 /**
  * Busca los productos
  * @param  codigo para buscar productos
@@ -83,12 +91,16 @@ public class ListaProductos {
     public Producto buscarProducto(String codigo) { 
         Producto prod = null;
         
+        if (codigo.replace(" ","") == ""){
+            
         if (!listaP.containsKey(codigo)) {
             return prod;
         }
         else{
             return listaP.get(codigo);
         }
+     }
+        return null;
     }
 /**
  * Saca los productos que tengamos 
