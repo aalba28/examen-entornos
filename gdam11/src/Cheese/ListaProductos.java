@@ -44,6 +44,11 @@ public class ListaProductos {
     
     }
 
+   /**
+    * Añade productos
+    * @param prod añade un produto
+    * @return devuelve null si esta repetido y devuelve el producto si no esta repetido
+    */
     public Producto addProducto(Producto prod) {
         
         if (listaP.containsKey(prod.getcode())) {
@@ -55,7 +60,11 @@ public class ListaProductos {
         listaP.put(prod.getcode(), prod);
         return prod;
     }
-
+/**
+ * Borra productos del codigo
+ * @param codigo del producto a eliminar
+ * @return devuelve null si esta repetido y devuelve lo que queramos eliminar si no esta repetido
+ */
     public Producto eliminarProducto(String codigo) { 
         
         Producto prod = buscarProducto(codigo);
@@ -66,7 +75,11 @@ public class ListaProductos {
         }
         return prod;
     }
-
+/**
+ * Busca los productos
+ * @param  codigo para buscar productos
+ * @return devuelve el producto que estamos buscando
+ */
     public Producto buscarProducto(String codigo) { 
         Producto prod = null;
         
@@ -77,13 +90,19 @@ public class ListaProductos {
             return listaP.get(codigo);
         }
     }
-
+/**
+ * Saca los productos que tengamos 
+ * @return devuelve los productos de la lista
+ */
     public ArrayList<Producto> getProductos() {
         ArrayList<Producto> prodsList = new ArrayList<>();
         prodsList.addAll(listaP.values());
         return prodsList;
     }
-    
+    /**
+     * Genera el total de productos
+     * @return devuelve un numero de la cantidad de productos que tenemos
+     */
     public int totalProductos(){
             return this.getN();
     }
